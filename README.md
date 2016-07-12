@@ -35,7 +35,11 @@ docker run --rm \
 
 If you have built your container, then you can trigger a backup manually:
 ```
-docker exec -ti <CONTAINER_NAME|CONTAINER_ID> /backup.sh
+docker exec -ti <CONTAINER_NAME|CONTAINER_ID> backup.sh
+```
+
+```
+$ docker exec -ti redis-backup backup.sh
 ```
 
 
