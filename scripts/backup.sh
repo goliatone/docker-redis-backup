@@ -9,7 +9,7 @@ echo "$(get_date) Backup started..."
 TIMESTAMP=$(date +%Y%m%d-%H%M%S)
 OUT=/backups/redis-backup-$TIMESTAMP.tar.gz
 
-mkdir -p /tmp/dumps
+mkdir /tmp/dumps/
 
 echo "$(get_date) [1/3] Accessing backup file..."
 redis-cli -h $REDIS_HOST -p $REDIS_PORT --rdb /tmp/dumps/dump.rdb
