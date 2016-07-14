@@ -12,7 +12,7 @@ OUT=/backups/redis-backup-$TIMESTAMP.tar.gz
 mkdir /tmp/dumps/
 
 echo "$(get_date) [1/3] Accessing backup file..."
-redis-cli -h $REDIS_HOST -p $REDIS_PORT --rdb /tmp/dumps/dump.rdb
+/usr/local/bin/redis-cli -h $REDIS_HOST -p $REDIS_PORT --rdb /tmp/dumps/dump.rdb
 
 echo "$(get_date) [2/3] Creating tar archive..."
 tar -zcvf $OUT /tmp/dumps
@@ -31,4 +31,4 @@ else
     echo "$(get_date) [3/3] AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
 fi
 
-echo "$(get_date) Backup complted"
+echo "$(get_date) Backup completed"
