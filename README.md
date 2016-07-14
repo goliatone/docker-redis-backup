@@ -23,7 +23,7 @@ Optionally, if you want to save the dump using S3, set the following variables:
 Using docker:
 
 ```
-docker run --rm \
+docker run -ti \
   -e AWS_SECRET_ACCESS_KEY='<AWS_SECRET_ACCESS_KEY>' \
   -e AWS_ACCESS_KEY_ID='<AWS_ACCESS_KEY_ID>' \
   -e S3_BUCKET=<S3_BUCKET> \
@@ -53,4 +53,10 @@ docker build -t goliatone/docker-redis-backup .
 
 ```
 docker push goliatone/docker-redis-backup
+```
+
+If you need to start a shell session into a non running container:
+
+```
+docker run -ti --entrypoint /bin/bash goliatone/docker-redis-backup
 ```
