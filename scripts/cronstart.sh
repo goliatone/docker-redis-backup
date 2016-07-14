@@ -11,7 +11,7 @@ AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID};
 AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY};
 "
 
-CRON_COMMAND="/backup.sh 1>/var/log/backup_script.log 2>&1"
+CRON_COMMAND="/backup.sh >> /var/log/backup_script.log 2>&1"
 
 echo "VERSION: 0.0.1"
 echo "Start backup script..."
@@ -28,4 +28,4 @@ echo "$CRON_CLEANUP /remove.sh" >> tmpcron
 crontab tmpcron
 
 cron start -f
-tail -f /var/log/backup_script.log
+# tail -f /var/log/backup_script.log
