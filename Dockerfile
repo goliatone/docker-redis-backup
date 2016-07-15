@@ -2,8 +2,7 @@ FROM        redis:3.2.1
 MAINTAINER	goliatone <hello@goliatone.com>
 LABEL		version="0.0.3"
 
-RUN echo "deb http://httpredir.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list
-
+# RUN echo "deb http://httpredir.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
     apt-get install -yqq software-properties-common python-software-properties && \
     apt-get update
