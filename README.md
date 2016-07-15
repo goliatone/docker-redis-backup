@@ -29,8 +29,17 @@ docker run -ti \
   -e S3_BUCKET=<S3_BUCKET> \
   -e REDIS_HOST=<REDIS_HOST> \
   -e REDIS_PORT=<REDIS_PORT> \
-  -v /var/lib/redis/6379/dump.rdb:/dump.rdb \
+  -e CRON_SCHEDULE="* * * * *" \
+  -v $(pwd)/logs:/var/log \
+  -v $(pwd)/redisbackup:/backups \
+  --name redis-backup \
   goliatone/docker-redis-backup
+```
+
+You can also specify the contents of the dump:
+
+```
+-v /var/lib/redis/6379/dump.rdb:/dump.rdb
 ```
 
 If you have built your container, then you can trigger a backup manually:
